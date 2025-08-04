@@ -15,55 +15,6 @@ type labelData = {
     text: string
 }
 
-// export async function GetMetadata(link: string) {
-
-//     const url = link
-//     try {
-//         const metadata = await urlMetadata(url);
-//         // console.log(metadata)
-
-//         return metadata.title
-//     } catch (e) {
-//         console.log(e)
-//     }
-//     return ""
-
-// }
-
-
-// export async function sendData(formData: data) {
-//     console.log('recieved data - add bookmarks ', formData)
-
-//     const supabase = await createClient()
-//     const { data: { user } } = await supabase.auth.getUser()
-
-//     if (formData) {
-
-//         // console.log(formData.labels)
-
-//         let metadata = await GetMetadata(formData.link)
-//         metadata = metadata.length > 0 ? metadata : "Untitled"
-
-//         const { data, status, statusText } = await supabase
-//             .from('bookmarks')
-//             .insert({
-//                 user_id: user?.id,
-//                 email: user?.email,
-//                 categories: formData.categories,
-//                 labels: formData.labels,
-//                 link: formData.link,
-//                 metadata: metadata
-//             }, { count: 'planned' })
-//             .select()
-
-//         // refer docs - https://supabase.com/docs/reference/javascript/select
-//         console.log('added bookmark', data, status, statusText)
-
-//         return { status: status, statusText: statusText }
-//     }
-
-// }
-
 export async function sendData(formData: data): Promise<{ status: number, statusText: string }> {
     try {
         console.log('Received data - add bookmarks', formData);
